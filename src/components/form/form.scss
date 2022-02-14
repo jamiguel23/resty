@@ -4,7 +4,9 @@ $radius: 40%;
 form {
   display: inline-block;
   margin: auto;
-  width: 200px;
+  width: auto;
+  // border: 2px solid forestgreen;
+  background-color: #efefef;
 
   label {
     display: flex;
