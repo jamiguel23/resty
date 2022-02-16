@@ -1,6 +1,6 @@
 # RESTy lab
 
-## Lab Requirement
+## Lab 26 Requirement
 
 Refactor the RESTy application as follows:
 
@@ -21,3 +21,11 @@ The Results component should show mock API results.
 ## UML
 
 ![uml](./lab26.PNG)
+
+
+## Lab 27 requirement
+
+- Refactor any components using this.setState to implement the useState react API hook.
+- Refactor the Form Component to implement user input from form elements, instead of hard coded - string values.
+
+
