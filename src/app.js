@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import axios from 'axios';
 import './app.scss';
 
 
@@ -20,20 +20,24 @@ function App() {
 
   const callApi = async (requestParams) => {
     setRequestParams(requestParams);
+    console.log('*', requestParams);
     setLoading(true);
-    // mock output
+
 
     await setTimeout(() => {
-      const data = {
-        count: 2,
-        results: [
-          { name: 'fake thing 1', url: 'http://fakethings.com/1' },
-          { name: 'fake thing 2', url: 'http://fakethings.com/2' },
-        ],
-      };
-      setData(data);
+      axios.get(requestParams.url)
+
+        .then((json) => {
+          setData(json)
+
+        })
+        .catch((e) => {
+          console.log('Error', e);
+          setData('Invalid URL');
+        });
       setLoading(false);
     }, 2000);
+
   }
 
 
