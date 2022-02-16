@@ -2,12 +2,17 @@ import './results.scss';
 
 
 const Results = (props) => {
-  
-    return (
-      <section>
-        <pre>{props.data ? JSON.stringify(props.data, undefined, 2) : null}</pre>
-      </section>
-    );
+
+  return (
+    <section>
+      {
+        props.loading ?
+          <div>Loading... </div>
+          :
+          <pre>{props.data ? JSON.stringify(props.data, undefined, 2) : null}</pre>
+      }
+    </section>
+  );
 
 }
 

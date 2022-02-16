@@ -23,25 +23,28 @@ function App() {
     setLoading(true);
     // mock output
 
-    const data = {
-      count: 2,
-      results: [
-        { name: 'fake thing 1', url: 'http://fakethings.com/1' },
-        { name: 'fake thing 2', url: 'http://fakethings.com/2' },
-      ],
-    };
-    setData(data);
-    setLoading(false);
-
+    await setTimeout(() => {
+      const data = {
+        count: 2,
+        results: [
+          { name: 'fake thing 1', url: 'http://fakethings.com/1' },
+          { name: 'fake thing 2', url: 'http://fakethings.com/2' },
+        ],
+      };
+      setData(data);
+      setLoading(false);
+    }, 2000);
   }
 
 
   return (
     <React.Fragment>
       <Header />
-      <div>Request Method: {requestParams.method}</div>
-      <div>URL: {requestParams.url}</div>
       <Form handleApiCall={callApi} />
+      <div>
+        <div>Request Method: {requestParams.method}</div>
+        <div>URL: {requestParams.url}</div>
+      </div>
       <Results loading={loading} data={data} />
       <Footer />
     </React.Fragment>
