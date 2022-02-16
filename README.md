@@ -28,4 +28,3 @@ The Results component should show mock API results.
 - Refactor any components using this.setState to implement the useState react API hook.
 - Refactor the Form Component to implement user input from form elements, instead of hard coded - string values.
 
-yup 
