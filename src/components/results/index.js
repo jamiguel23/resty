@@ -5,6 +5,7 @@ const Results = (props) => {
 
   return (
     <section>
+      <h2>Results</h2>
       {
         props.loading ?
           <div>Loading... </div>
