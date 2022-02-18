@@ -10,9 +10,8 @@ import Footer from './components/footer';
 import Form from './components/form';
 import Results from './components/results';
 import History from './components/history';
-import {useReducer} from 'react';
+import { useReducer } from 'react';
 
-let [state, dispatch] = useReducer(reducer, initialState)
 
 const initialState = {
   data: null,
@@ -21,13 +20,23 @@ const initialState = {
   history: [],
 }
 
-function reducer(state, action) {
+let [state, dispatch] = useReducer(reducer, initialState)
 
-  switch(action.type){
-    case ' '
+
+function reducer(state = initialState, action) {
+  console.log('running reducer');
+  const { type, payload } = action;
+  switch (type) {
+    default:
+      return state;
+    case "DATA/SETTING_DATA":
+      return {
+        ...state,
+        data: [payload],
+      };
+
   }
 }
-
 
 
 function App() {
@@ -70,7 +79,7 @@ function App() {
         <div>URL: {requestParams.url}</div>
       </div>
       <Results loading={loading} data={data} />
-      <History loading={loadingn}
+      <History loading={loading} />
       <Footer />
     </React.Fragment>
   );
