@@ -13,7 +13,7 @@ const History = (props) => {
 
   return (
     <section>
-      <h1>History</h1>
+      <h2>History</h2>
       {
         
         props.loading

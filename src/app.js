@@ -9,6 +9,7 @@ import Header from './components/header';
 import Footer from './components/footer';
 import Form from './components/form';
 import Results from './components/results';
+import History from './components/history';
 import {useReducer} from 'react';
 
 let [state, dispatch] = useReducer(reducer, initialState)
@@ -69,6 +70,7 @@ function App() {
         <div>URL: {requestParams.url}</div>
       </div>
       <Results loading={loading} data={data} />
+      <History loading={loadingn}
       <Footer />
     </React.Fragment>
   );
