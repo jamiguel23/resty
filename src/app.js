@@ -9,6 +9,25 @@ import Header from './components/header';
 import Footer from './components/footer';
 import Form from './components/form';
 import Results from './components/results';
+import {useReducer} from 'react';
+
+let [state, dispatch] = useReducer(reducer, initialState)
+
+const initialState = {
+  data: null,
+  requestParams: {},
+  loading: false,
+  history: [],
+}
+
+function reducer(state, action) {
+
+  switch(action.type){
+    case ' '
+  }
+}
+
+
 
 function App() {
 
