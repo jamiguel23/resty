@@ -20,7 +20,7 @@ const initialState = {
   history: [],
 }
 
-let [state, dispatch] = useReducer(reducer, initialState)
+// let [state, dispatch] = useReducer(reducer, initialState)
 
 
 function reducer(state = initialState, action) {
@@ -35,6 +35,13 @@ function reducer(state = initialState, action) {
         data: [payload],
       };
 
+      case "PARAMS/REQ_PARAMS":
+      return {
+        ...state,
+        requestParams: payload, 
+        history: [...state.history, payload]
+      }
+
   }
 }
 
@@ -42,16 +49,21 @@ function reducer(state = initialState, action) {
 function App() {
 
   const [data, setData] = useState(null);
-  const [requestParams, setRequestParams] = useState({});
+  let [state, dispatch] = useReducer(reducer, initialState)
 
   const [loading, setLoading] = useState(false);
 
 
   const callApi = async (requestParams) => {
-    setRequestParams(requestParams);
-    console.log('*', requestParams);
+    // setRequestParams(requestParams);
+    // console.log('*', requestParams);
     setLoading(true);
 
+
+    const action = {
+      type: "PARAMS/REQ_PARAMS",
+      payload: requestParams
+    }
 
     await setTimeout(() => {
       axios.get(requestParams.url)
